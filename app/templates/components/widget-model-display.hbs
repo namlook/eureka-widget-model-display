@@ -1,0 +1,16 @@
+<div class="panel panel-default">
+    {{#if header}}
+        <div class="panel-heading">{{{header}}}</div>
+    {{/if}}
+
+    <div class="panel-body">
+        <dl class="dl-horizontal">
+        {{#each field in fields}}
+            <dt> {{field.meta.label}} </dt>
+            <dd>
+                {{dynamic-component type=field.meta.displayWidgetComponentName field=field}}
+            </dd>
+        {{/each}}
+        </dl>
+    </div>
+</div>

@@ -1,6 +1,26 @@
 # Eureka-widget-model-display
 
-This README outlines the details of collaborating on this Ember addon.
+An Eureka widget to display a model. Usage:
+
+    {
+        BlogPost: {
+            views: {
+                model: {
+                    index: {
+                        widgets: [
+                            {
+                                type: 'model-display',
+
+                                // the widget header. If "auto", display the model's title
+                                header: "auto"
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+
 
 ## Installation
 

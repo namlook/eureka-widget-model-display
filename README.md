@@ -1,6 +1,6 @@
 # Eureka-widget-model-display
 
-An Eureka widget to display a model. Usage:
+An Eureka widget that display a model. Usage:
 
     {
         BlogPost: {

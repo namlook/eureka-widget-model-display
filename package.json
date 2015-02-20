@@ -1,7 +1,7 @@
 {
   "name": "eureka-widget-model-display",
   "version": "0.0.0",
-  "description": "An Eureka widget to display a model.",
+  "description": "An Eureka widget that display a model.",
   "directories": {
     "doc": "doc",
     "test": "tests"

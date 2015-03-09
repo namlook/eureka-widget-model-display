@@ -11,8 +11,18 @@ An Eureka widget that display a model. Usage:
                             {
                                 type: 'model-display',
 
-                                // the widget header. If "auto", display the model's title
-                                header: "auto"
+                                // the widget label. If "auto", display the model's title
+                                label: "auto",
+
+                                // display only the specified fields
+                                fields: ['title', 'body', 'tags'],
+
+                                // the text to display if no all the fields has no value
+                                // (works only if `displayEmptyValue is not `true`)
+                                emptyPlaceholderLabel: 'no informations found',
+
+                                // if `true` display the field label even if there is no value
+                                displayEmptyValue: true
                             }
                         ]
                     }

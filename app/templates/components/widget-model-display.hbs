@@ -1,15 +1,20 @@
 <div class="panel panel-default">
-    {{#if header}}
-        <div class="panel-heading">{{{header}}}</div>
+    {{#if label}}
+        <div class="panel-heading">{{{label}}}</div>
     {{/if}}
 
     <div class="panel-body">
         <dl class="dl-horizontal">
         {{#each field in fields}}
-            <dt> {{field.meta.label}} </dt>
-            <dd>
-                {{dynamic-component type=field.meta.displayWidgetComponentName field=field}}
-            </dd>
+            {{#if field.hasValue}}
+                {{partial 'eureka-widget-model-display-field'}}
+            {{else}}
+                {{#if displayEmptyValue}}
+                    {{partial 'eureka-widget-model-display-field'}}
+                {{/if}}
+            {{/if}}
+        {{else}}
+            {{{emptyPlaceholderLabel}}}
         {{/each}}
         </dl>
     </div>

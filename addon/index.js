@@ -6,12 +6,14 @@ export default WidgetModel.extend({
     displayEmptyValue: Ember.computed.alias('config.displayEmptyValue'),
     emptyPlaceholderLabel: Ember.computed.alias('config.emptyPlaceholderLabel'),
 
+    fieldNames: Ember.computed.alias('config.fields'),
+
     /** display only the fields specified in `config.fields`
      * If `config.fields` doesn't exists, display all model's fields
      */
     fields: function() {
         var displayEmptyValue = this.get('displayEmptyValue');
-        var fieldNames = this.get('config.fields');
+        var fieldNames = this.get('fieldNames');
         var fields, field;
         if (fieldNames) {
             var model = this.get('model');

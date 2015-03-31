@@ -4,18 +4,31 @@
     {{/if}}
 
     <div class="panel-body">
-        <dl class="dl-horizontal">
-        {{#each field in fields}}
-            {{#if field.hasValue}}
-                {{partial 'eureka-widget-model-display-field'}}
+        <table {{bind-attr class=":table hideLabels::table-hover"}}>
+            <tbody>
+            {{#each field in fields}}
+                <tr scope="row">
+                    {{#if field.hasValue}}
+                        {{#unless hideLabels}}
+                            <th> {{field.meta.label}} </th>
+                        {{/unless}}
+                        <td>
+                            {{dynamic-component
+                                type=field.meta.displayWidgetComponentName
+                                field=field
+                                currentController=currentController}}
+                        </td>
+                    {{else}}
+                        {{#if displayEmptyValue}}
+                            <th> {{field.meta.label}} </th>
+                            <td></td>
+                        {{/if}}
+                    {{/if}}
+                </tr>
             {{else}}
-                {{#if displayEmptyValue}}
-                    {{partial 'eureka-widget-model-display-field'}}
-                {{/if}}
-            {{/if}}
-        {{else}}
-            {{{emptyPlaceholderLabel}}}
-        {{/each}}
-        </dl>
+                <div class="empty-placeholder">{{{emptyPlaceholderLabel}}}</div>
+            {{/each}}
+            </tbody>
+        </table>
     </div>
 </div>

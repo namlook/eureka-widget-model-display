@@ -23,6 +23,9 @@ An Eureka widget that display a model. Usage:
 
                                 // if `true` display the field label even if there is no value
                                 displayEmptyValue: true
+
+                                // if `true` hide the labels
+                                hideLabels: false
                             }
                         ]
                     }

@@ -3,16 +3,20 @@ import WidgetModel from 'ember-eureka/widget-model';
 
 export default WidgetModel.extend({
 
-    displayEmptyValue: Ember.computed.alias('config.displayEmptyValue'),
-    emptyPlaceholderLabel: Ember.computed.alias('config.emptyPlaceholderLabel'),
-
+    hideLabels: Ember.computed.bool('config.hideLabels'),
+    displayEmptyValue: Ember.computed.bool('config.displayEmptyValue'),
     fieldNames: Ember.computed.alias('config.fields'),
+
+    emptyPlaceholderLabel: function() {
+        return this.getWithDefault('config.emptyPlaceholderLabel', '');
+    }.property('config.emptyPlaceholderLabel'),
+
 
     /** display only the fields specified in `config.fields`
      * If `config.fields` doesn't exists, display all model's fields
      */
     fields: function() {
-        var displayEmptyValue = this.get('displayEmptyValue');
+        // var displayEmptyValue = this.get('displayEmptyValue');
         var fieldNames = this.get('fieldNames');
         var fields, field;
         if (fieldNames) {
@@ -20,9 +24,9 @@ export default WidgetModel.extend({
             fields = Ember.A();
             fieldNames.forEach(function(fieldName) {
                 field = model.get(fieldName+'Field');
-                if (!displayEmptyValue && !field.get('hasValue')) {
-                    return;
-                }
+                // if (!displayEmptyValue && !field.get('hasValue')) {
+                    // return;
+                // }
                 fields.pushObject(field);
             });
         } else {
@@ -31,6 +35,7 @@ export default WidgetModel.extend({
 
         return fields;
     }.property('config.fields.@each', 'model._fields'),
+
 
     label: function() {
         var _label = this.get('config.label');

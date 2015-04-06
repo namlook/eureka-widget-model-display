@@ -13,8 +13,7 @@
                             <th> {{field.meta.label}} </th>
                         {{/unless}}
                         <td>
-                            {{dynamic-component
-                                type=field.meta.displayWidgetComponentName
+                            {{component field.meta.displayWidgetComponentName
                                 field=field
                                 currentController=currentController}}
                         </td>

@@ -4,9 +4,9 @@
     {{/if}}
 
     <div class="panel-body">
-        <table {{bind-attr class=":table hideLabels::table-hover"}}>
+        <table class="table {{unless hideLabels 'table-hover'}}">
             <tbody>
-            {{#each field in fields}}
+            {{#each fields as |field|}}
                 <tr scope="row">
                     {{#if field.hasValue}}
                         {{#unless hideLabels}}

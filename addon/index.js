@@ -34,7 +34,7 @@ export default WidgetModel.extend({
         }
 
         return fields;
-    }.property('config.fields.@each', 'model._fields'),
+    }.property('config.fields.[]', 'model._fields'),
 
 
     label: function() {
